@@ -24,7 +24,6 @@ export const authOptions: NextAuthOptions = {
   session: {
     strategy: 'jwt',
   },
-
   pages: {
     signIn: '/login',
   },
@@ -34,7 +33,6 @@ export const authOptions: NextAuthOptions = {
       clientSecret: getGoogleCredentials().clientSecret,
     }),
   ],
-  secret: process.env.JWT_SECRET,
   callbacks: {
     async jwt({ token, user }) {
       const dbUserResult = (await fetchRedis('get', `user:${token.id}`)) as
@@ -72,4 +70,5 @@ export const authOptions: NextAuthOptions = {
       return '/dashboard'
     },
   },
+  // secret: process.env.JWT_SECRET,
 }

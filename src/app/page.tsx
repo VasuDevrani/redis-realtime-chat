@@ -1,5 +1,5 @@
-import Signout from '@/components/Signout'
+import SignOutButton from "@/components/SignOutButton";
 
 export default function Home() {
-  return <Signout/>
+  return <SignOutButton/>
 }
